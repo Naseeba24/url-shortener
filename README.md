@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 This is a simple full-stack URL Shortener application.  
-It allows users to convert long URLs into short links and redirects users to the original URL when accessed.
+It allows users to convert long URLs into short links and redirect users to the original URL when accessed.
 
 ---
 
@@ -23,10 +23,43 @@ It allows users to convert long URLs into short links and redirects users to the
 ---
 
 ## 📂 Project Structure
+url-shortener/
+│
+├── backend/
+│ ├── db.php
+│ ├── shorten.php
+│ ├── index.php
+│
+├── frontend/
+│ ├── Vue project files
+│
+├── README.md
+
 ---
 
 ## 🗄️ Database Setup
 
-Create a database named:
+Create database:
+
 ```sql
-url_shortener
+CREATE DATABASE url_shortener;
+
+USE url_shortener;
+
+CREATE TABLE links (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    long_url TEXT NOT NULL,
+    short_code VARCHAR(10) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+🚀 How to Run Locally
+1️⃣ Backend (PHP - Laragon)
+Place project inside www folder
+Start Apache + MySQL
+Open: http://localhost/url-shortener/
+
+## frontend
+2️⃣ Frontend (Vue.js)
+cd frontend
+npm install
+npm run dev
